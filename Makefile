@@ -54,3 +54,6 @@ clean:
 
 fclean: clean
 	@rm -f $(PUSH) $(CHECKER)
+
+norme:
+	norminette srcs/ checker.c push_swap.c
