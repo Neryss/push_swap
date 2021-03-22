@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:35:24 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/22 15:01:30 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/22 15:22:38 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	check_args(int argc, char **argv)
 		close("Invalid number of arguments");
 	while(i < argc)
 	{
-		ft_islinenum(argv[i]);
+		if (!ft_islinenum(argv[i]))
+			close("Wrong arguments format");
+		i++;
 	}
 }
