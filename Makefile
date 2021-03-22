@@ -24,24 +24,24 @@ CHECKER = checker
 PUSH = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -O3 -fno-builtin
-SRCS =
-OBJS = $(SRCS:%.o=%.c)
+SRCS = srcs/parsing.c
+OBJS = $(SRCS:.c=.o)
 
 
-%.o: %.c
+%.o: %.c includes/push_swap.h
 	@printf "$(_PURPLE)[$(PUSH)] $(_END)$(_CYAN)[+] $(_END)Compiling $(_BLUE)owo$(_END) | $(_CYAN)$<$(_END)\n" | tr "lr" "w"
-	@$(CC) $< -o $(<:%.c=%.o)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(CHECKER) $(PUSH)
 
-$(CHECKER): $(OBJS)
-	$(MAKE) -C ./libft
-	$(CC) $(CFLAGS) -o checker $(OBJS) checker.c libft/libft.a
+$(CHECKER): $(OBJS) checker.o
+	@$(MAKE) -C ./libft
+	@$(CC) $(CFLAGS) -o checker $(OBJS) checker.c libft/libft.a
 	@printf "$(_PURPLE)[$(CHECKER)] $(_END)$(_BLUE)[✓] $(_END)$(_UNDER)$(_BOLD)$(_GREEN)Done uwu$(_END)\n" | tr "lr" "w"
 
-$(PUSH): $(OBJS)
-	$(MAKE) -C ./libft
-	$(CC) $(CFLAGS) -o $(PUSH) $(OBJS) push_swap.c libft/libft.a
+$(PUSH): $(OBJS) push_swap.o
+	@$(MAKE) -C ./libft
+	@$(CC) $(CFLAGS) -o $(PUSH) $(OBJS) push_swap.c libft/libft.a
 	@printf "$(_PURPLE)[$(PUSH)] $(_END)$(_BLUE)[✓] $(_END)$(_UNDER)$(_BOLD)$(_GREEN)Done uwu$(_END)\n" | tr "lr" "w"
 
 re: fclean
@@ -49,10 +49,12 @@ re: fclean
 	@$(MAKE) all
 
 clean:
+	@$(MAKE) clean -C ./libft
 	@printf "$(_PURPLE)[$(PUSH)] $(_END)$(_RED)[-]$(_END) Objects deleted!\n"
 	@rm -f $(OBJS)
 
 fclean: clean
+	@$(MAKE) fclean -C ./libft
 	@rm -f $(PUSH) $(CHECKER)
 
 norme:
