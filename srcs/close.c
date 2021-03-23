@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   close.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/22 14:35:29 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/23 15:03:12 by ckurt            ###   ########lyon.fr   */
+/*   Created: 2021/03/23 14:57:04 by ckurt             #+#    #+#             */
+/*   Updated: 2021/03/23 14:57:06 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+void	close_program(char *error)
 {
-	t_swapper	swapper;
-
-	check_args(argc, argv, &swapper);
-	close_program(NULL);
+	if (!error)
+		exit(0);
+	printf("Error\n%s\n", error);
+	exit(0);
 }

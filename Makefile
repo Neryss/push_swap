@@ -24,7 +24,8 @@ CHECKER = checker
 PUSH = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -O3 -fno-builtin
-SRCS = srcs/parsing.c
+SRCS = srcs/parsing.c \
+		srcs/close.c
 OBJS = $(SRCS:.c=.o)
 
 
