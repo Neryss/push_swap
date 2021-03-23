@@ -59,3 +59,5 @@ fclean: clean
 
 norme:
 	norminette srcs/ checker.c push_swap.c
+
+.PHONY: re clean fclean norme

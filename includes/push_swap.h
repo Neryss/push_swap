@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:43:15 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/22 15:54:18 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/23 13:51:34 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,19 @@
 # include <stdlib.h>
 # include "../libft/libft.h"
 
+typedef struct	s_stack
+{
+	int	*tab;
+	int	size;
+}				t_stack;
+
+typedef struct	s_swapper
+{
+	t_stack	stack_a;
+	t_stack	stack_b;
+}				t_swapper;
+
 void	close_program(char *error);
-void	check_args(int argc, char **argv);
+void	check_args(int argc, char **argv, t_swapper *swapper);
 
 #endif
