@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 16:00:08 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/23 16:36:06 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/23 17:09:31 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	minus_one_stack(t_stack *stack)
 
 	stack->size -= 1;
 	i = 0;
+	if (stack->size == 0)
+		return ;
 	while (i < stack->size)
 	{
 		stack->tab[i] = stack->tab[i + 1];
@@ -65,10 +67,20 @@ void	minus_one_stack(t_stack *stack)
 
 void	move_pa(t_swapper *swapper)
 {
-	if (swapper->stack_b.tab)
+	if (swapper->stack_b.size)
 	{
 		plus_one_stack(&swapper->stack_a);
 		swapper->stack_a.tab[0] = swapper->stack_b.tab[0];
 		minus_one_stack(&swapper->stack_b);
+	}
+}
+
+void	move_pb(t_swapper *swapper)
+{
+	if (swapper->stack_a.size)
+	{
+		plus_one_stack(&swapper->stack_b);
+		swapper->stack_b.tab[0] = swapper->stack_a.tab[0];
+		minus_one_stack(&swapper->stack_a);
 	}
 }

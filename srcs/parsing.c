@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:35:24 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/23 16:13:04 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/23 17:11:19 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,15 @@ void	display_stacks(t_swapper *swapper)
 	int	i;
 
 	i = 0;
+	printf("A############A\n");
+	printf("stack a size : %d\n", swapper->stack_a.size);
 	while (i < swapper->stack_a.size)
 		printf("[%d]\n", swapper->stack_a.tab[i++]);
+	i = 0;
+	printf("B############B\n");
+	printf("stack b size : %d\n", swapper->stack_b.size);
+	while (i < swapper->stack_b.size)
+		printf("[%d]\n", swapper->stack_b.tab[i++]);
 }
 
 void	init_stacks(int argc, char **argv, t_swapper *swapper)
@@ -38,7 +45,7 @@ void	init_stacks(int argc, char **argv, t_swapper *swapper)
 	swapper->stack_a.tab = malloc(sizeof(int) * swapper->stack_a.size);
 	if (!swapper->stack_a.tab)
 		close_program(1);
-	swapper->stack_b.size = swapper->stack_a.size;
+	swapper->stack_b.size = 0;
 	swapper->stack_b.tab = malloc(sizeof(int) * swapper->stack_b.size);
 	if (!swapper->stack_b.tab)
 		close_program(1);

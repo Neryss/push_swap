@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 14:57:04 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/23 16:13:18 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/23 16:47:42 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 void	close_program(int error)
 {
 	if (error)
-		printf("Error\n");
+		ft_putendl_fd("Error\n", 2);
 	exit(0);
 }

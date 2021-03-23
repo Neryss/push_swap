@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:35:29 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/23 16:36:30 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/23 17:11:01 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,16 @@ int	main(int argc, char **argv)
 
 	check_args(argc, argv, &swapper);
 	swapper.stack_b.tab[0] = 4;
+	swapper.stack_b.tab[1] = 10;
+	swapper.stack_b.tab[2] = 15;
+	swapper.stack_b.size = 3;
+	// swapper.stack_b.tab[3] = 25;
+	if (DEBUG)
+		display_stacks(&swapper);
 	move_pa(&swapper);
+	// move_pa(&swapper);
+	// move_pa(&swapper);
+	// move_pa(&swapper);
 	if (DEBUG)
 		display_stacks(&swapper);
 	check_sorted(&swapper);
