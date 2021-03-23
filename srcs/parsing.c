@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:35:24 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/23 15:02:58 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/23 15:12:04 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	check_args(int argc, char **argv, t_swapper *swapper)
 	i = 1;
 	if (argc <= 1)
 		close_program("Invalid number of arguments");
-	while(i < argc)
+	while (i < argc)
 	{
 		if (!ft_islinenum(argv[i]))
 			close_program("Wrong arguments format");
