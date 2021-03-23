@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:35:24 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/23 15:12:04 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/23 16:13:04 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,12 @@ void	init_stacks(int argc, char **argv, t_swapper *swapper)
 	swapper->stack_a.size = argc - 1;
 	swapper->stack_a.tab = malloc(sizeof(int) * swapper->stack_a.size);
 	if (!swapper->stack_a.tab)
-		close_program("Malloc failed during tab init");
+		close_program(1);
 	swapper->stack_b.size = swapper->stack_a.size;
 	swapper->stack_b.tab = malloc(sizeof(int) * swapper->stack_b.size);
 	if (!swapper->stack_b.tab)
-		close_program("Malloc failed during tab init");
+		close_program(1);
 	fill_stacks(argv, swapper);
-	if (DEBUG)
-		display_stacks(swapper);
 }
 
 void	check_args(int argc, char **argv, t_swapper *swapper)
@@ -53,11 +51,11 @@ void	check_args(int argc, char **argv, t_swapper *swapper)
 
 	i = 1;
 	if (argc <= 1)
-		close_program("Invalid number of arguments");
+		close_program(1);
 	while (i < argc)
 	{
 		if (!ft_islinenum(argv[i]))
-			close_program("Wrong arguments format");
+			close_program(1);
 		i++;
 	}
 	init_stacks(argc, argv, swapper);

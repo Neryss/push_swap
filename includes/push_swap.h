@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:43:15 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/23 15:13:57 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/23 16:12:41 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ typedef struct s_swapper
 	t_stack	stack_b;
 }				t_swapper;
 
-void	close_program(char *error);
+void	close_program(int error);
 void	check_args(int argc, char **argv, t_swapper *swapper);
+void	move_sa(t_swapper *swapper);
+void	display_stacks(t_swapper *swapper);
 
 #endif

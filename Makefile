@@ -25,7 +25,8 @@ PUSH = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -O3 -fno-builtin
 SRCS = srcs/parsing.c \
-		srcs/close.c
+		srcs/close.c \
+		srcs/moves.c
 OBJS = $(SRCS:.c=.o)
 
 
