@@ -26,11 +26,12 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -O3 -fno-builtin
 SRCS = srcs/parsing.c \
 		srcs/close.c \
-		srcs/moves_a.c \
-		srcs/moves_b.c \
-		srcs/moves_utils.c \
 		srcs/utils.c \
-		srcs/get_exe_moves.c
+		srcs/moves/get_exe_moves.c \
+		srcs/moves/moves_a.c \
+		srcs/moves/moves_b.c \
+		srcs/moves/moves_utils.c \
+		srcs/algo/algo.c
 OBJS = $(SRCS:.c=.o)
 
 
@@ -64,6 +65,6 @@ fclean: clean
 	@rm -f $(PUSH) $(CHECKER)
 
 norme:
-	@norminette srcs/ checker.c push_swap.c includes/push_swap.h
+	@norminette srcs/*.c srcs/moves/*.c checker.c push_swap.c includes/push_swap.h
 
 .PHONY: re clean fclean norme

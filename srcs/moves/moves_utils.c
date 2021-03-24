@@ -6,11 +6,11 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 10:40:25 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/24 12:32:16 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/24 14:09:04 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	swap_int(int *a, int *b)
 {

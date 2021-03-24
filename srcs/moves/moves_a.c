@@ -6,11 +6,11 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 16:00:08 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/24 14:06:15 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/24 14:08:59 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	move_sa(t_swapper *swapper)
 {

@@ -6,16 +6,16 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 10:39:27 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/24 14:06:35 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/24 14:57:06 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	move_sb(t_swapper *swapper)
 {
 	if (swapper->stack_b.size > 1)
-	swap_int(&swapper->stack_b.tab[0], &swapper->stack_b.tab[1]);
+		swap_int(&swapper->stack_b.tab[0], &swapper->stack_b.tab[1]);
 }
 
 void	move_pb(t_swapper *swapper)
