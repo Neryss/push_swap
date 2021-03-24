@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 16:00:08 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/24 12:17:39 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/24 14:06:15 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	move_sa(t_swapper *swapper)
 {
-	swap_int(&swapper->stack_a.tab[0], &swapper->stack_a.tab[1]);
+	if (swapper->stack_a.size > 1)
+		swap_int(&swapper->stack_a.tab[0], &swapper->stack_a.tab[1]);
 }
 
 void	move_pa(t_swapper *swapper)
