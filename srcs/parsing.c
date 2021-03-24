@@ -6,29 +6,11 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:35:24 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/24 11:14:40 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/24 12:21:51 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void	get_moves(t_swapper *swapper)
-{
-	t_list	*lst;
-	char	*line;
-	int	ret;
-
-	lst = NULL;
-	ret = 1;
-	while (ret)
-	{
-		ret = ft_gnl(0, &line);
-		if (ret == -1 || ret == 0)
-			return (NULL);
-		if (*line)
-			lst = ft_lstnew()
-	}
-}
 
 void	fill_stacks(char **argv, t_swapper *swapper)
 {
@@ -43,6 +25,7 @@ void	fill_stacks(char **argv, t_swapper *swapper)
 
 void	init_stacks(int argc, char **argv, t_swapper *swapper)
 {
+	swapper->instru = NULL;
 	swapper->stack_a.size = argc - 1;
 	swapper->stack_a.tab = malloc(sizeof(int) * swapper->stack_a.size);
 	if (!swapper->stack_a.tab)

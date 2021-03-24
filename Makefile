@@ -29,7 +29,8 @@ SRCS = srcs/parsing.c \
 		srcs/moves_a.c \
 		srcs/moves_b.c \
 		srcs/moves_utils.c \
-		srcs/utils.c
+		srcs/utils.c \
+		srcs/get_exe_moves.c
 OBJS = $(SRCS:.c=.o)
 
 
