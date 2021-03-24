@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 12:22:36 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/24 12:44:01 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/24 13:06:33 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,28 +44,30 @@ void	execute_moves(t_swapper *swapper)
 	new = swapper->instru;
 	while (new)
 	{
-		if (ft_strcmp(new->content, "sa"))
+		if (!ft_strcmp(new->content, "sa"))
 			move_sa(swapper);
-		else if (ft_strcmp(new->content, "sb"))
+		else if (!ft_strcmp(new->content, "sb"))
 			move_sb(swapper);
-		else if (ft_strcmp(new->content, "ss"))
+		else if (!ft_strcmp(new->content, "ss"))
 			move_ss(swapper);
-		else if (ft_strcmp(new->content, "pa"))
+		else if (!ft_strcmp(new->content, "pa"))
 			move_pa(swapper);
-		else if (ft_strcmp(new->content, "pb"))
+		else if (!ft_strcmp(new->content, "pb"))
 			move_pb(swapper);
-		else if (ft_strcmp(new->content, "ra"))
+		else if (!ft_strcmp(new->content, "ra"))
 			move_ra(swapper);
-		else if (ft_strcmp(new->content, "rb"))
+		else if (!ft_strcmp(new->content, "rb"))
 			move_rb(swapper);
-		else if (ft_strcmp(new->content, "rr"))
+		else if (!ft_strcmp(new->content, "rr"))
 			move_rr(swapper);
-		else if (ft_strcmp(new->content, "rra"))
+		else if (!ft_strcmp(new->content, "rra"))
 			move_rra(swapper);
-		else if (ft_strcmp(new->content, "rrb"))
+		else if (!ft_strcmp(new->content, "rrb"))
 			move_rrb(swapper);
-		else if (ft_strcmp(new->content, "rrr"))
+		else if (!ft_strcmp(new->content, "rrr"))
 			move_rrr(swapper);
+		else
+			close_program(1);
 		if (DEBUG)
 			display_stacks(swapper);
 		new = new->next;
