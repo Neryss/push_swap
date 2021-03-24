@@ -6,11 +6,29 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:35:24 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/24 10:47:19 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/24 11:14:40 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	get_moves(t_swapper *swapper)
+{
+	t_list	*lst;
+	char	*line;
+	int	ret;
+
+	lst = NULL;
+	ret = 1;
+	while (ret)
+	{
+		ret = ft_gnl(0, &line);
+		if (ret == -1 || ret == 0)
+			return (NULL);
+		if (*line)
+			lst = ft_lstnew()
+	}
+}
 
 void	fill_stacks(char **argv, t_swapper *swapper)
 {
@@ -21,22 +39,6 @@ void	fill_stacks(char **argv, t_swapper *swapper)
 	j = 0;
 	while (i < swapper->stack_a.size + 1)
 		swapper->stack_a.tab[j++] = ft_atoi(argv[i++]);
-}
-
-void	display_stacks(t_swapper *swapper)
-{
-	int	i;
-
-	i = 0;
-	printf("A############A\n");
-	printf("stack a size : %d\n", swapper->stack_a.size);
-	while (i < swapper->stack_a.size)
-		printf("[%d]\n", swapper->stack_a.tab[i++]);
-	i = 0;
-	printf("B############B\n");
-	printf("stack b size : %d\n", swapper->stack_b.size);
-	while (i < swapper->stack_b.size)
-		printf("[%d]\n", swapper->stack_b.tab[i++]);
 }
 
 void	init_stacks(int argc, char **argv, t_swapper *swapper)

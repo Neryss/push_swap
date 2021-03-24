@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:43:15 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/24 10:42:00 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/24 11:08:21 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_swapper
 {
 	t_stack	stack_a;
 	t_stack	stack_b;
+	t_list	*instru;
 }				t_swapper;
 
 void	swap_int(int *a, int *b);
