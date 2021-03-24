@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 12:22:36 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/24 13:23:52 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/24 14:02:45 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,15 @@ void	get_moves(t_swapper *swapper)
 		if (ret == -1)
 			close_program(1);
 		if (ret == 0)
+		{
+			free(line);
 			return ;
+		}
 		if (*line)
 		{
 			ft_lstadd_back(&swapper->instru, ft_lstnew(ft_strdup(line)));
 			free(line);
 		}
-		else
-			free(line);
 	}
 }
 
