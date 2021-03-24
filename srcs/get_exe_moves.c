@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 12:22:36 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/24 13:06:33 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/24 13:23:52 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	get_moves(t_swapper *swapper)
 {
 	t_list	*lst;
 	char	*line;
-	int	ret;
+	int		ret;
 
 	lst = NULL;
 	ret = 1;
@@ -35,6 +35,22 @@ void	get_moves(t_swapper *swapper)
 		else
 			free(line);
 	}
+}
+
+static void	some_moves(t_swapper *swapper, t_list *new)
+{
+	if (!ft_strcmp(new->content, "rb"))
+		move_rb(swapper);
+	else if (!ft_strcmp(new->content, "rr"))
+		move_rr(swapper);
+	else if (!ft_strcmp(new->content, "rra"))
+		move_rra(swapper);
+	else if (!ft_strcmp(new->content, "rrb"))
+		move_rrb(swapper);
+	else if (!ft_strcmp(new->content, "rrr"))
+		move_rrr(swapper);
+	else
+		close_program(1);
 }
 
 void	execute_moves(t_swapper *swapper)
@@ -56,18 +72,8 @@ void	execute_moves(t_swapper *swapper)
 			move_pb(swapper);
 		else if (!ft_strcmp(new->content, "ra"))
 			move_ra(swapper);
-		else if (!ft_strcmp(new->content, "rb"))
-			move_rb(swapper);
-		else if (!ft_strcmp(new->content, "rr"))
-			move_rr(swapper);
-		else if (!ft_strcmp(new->content, "rra"))
-			move_rra(swapper);
-		else if (!ft_strcmp(new->content, "rrb"))
-			move_rrb(swapper);
-		else if (!ft_strcmp(new->content, "rrr"))
-			move_rrr(swapper);
 		else
-			close_program(1);
+			some_moves(swapper, new);
 		if (DEBUG)
 			display_stacks(swapper);
 		new = new->next;

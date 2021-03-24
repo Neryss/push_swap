@@ -6,11 +6,25 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:35:24 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/24 12:21:51 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/24 13:56:45 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+int	check_dupes(int *tab, int i)
+{
+	int	j;
+
+	j = 0;
+	while (j < i - 1)
+	{
+		if (tab[j] == tab[j + 1])
+			return (1);
+		j++;
+	}
+	return (0);
+}
 
 void	fill_stacks(char **argv, t_swapper *swapper)
 {
@@ -20,7 +34,11 @@ void	fill_stacks(char **argv, t_swapper *swapper)
 	i = 1;
 	j = 0;
 	while (i < swapper->stack_a.size + 1)
+	{
 		swapper->stack_a.tab[j++] = ft_atoi(argv[i++]);
+		if (check_dupes(swapper->stack_a.tab, j))
+			close_program(1);
+	}
 }
 
 void	init_stacks(int argc, char **argv, t_swapper *swapper)
