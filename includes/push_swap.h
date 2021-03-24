@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:43:15 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/23 17:09:38 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/24 10:16:26 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	move_sb(t_swapper *swapper);
 void	move_ss(t_swapper *swapper);
 void	move_pa(t_swapper *swapper);
 void	move_pb(t_swapper *swapper);
+void	move_ra(t_swapper *swapper);
+void	move_rra(t_swapper *swapper);
 void	display_stacks(t_swapper *swapper);
 
 #endif

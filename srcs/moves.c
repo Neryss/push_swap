@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 16:00:08 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/23 17:21:10 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/24 10:34:21 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,33 @@ void	move_pb(t_swapper *swapper)
 	}
 }
 
-void	move_ra(t_stack *stack)
+void	move_ra(t_swapper *swapper)
 {
 	int	i;
+	int	tmp;
 
+	tmp = swapper->stack_a.tab[0];
 	i = 0;
-	while (i < stack->size)
+	while (i < swapper->stack_a.size)
 	{
-		
+		swapper->stack_a.tab[i] = swapper->stack_a.tab[i + 1];
+		i++;
 	}
+	swapper->stack_a.tab[swapper->stack_a.size - 1] = tmp;
+}
+
+void	move_rra(t_swapper *swapper)
+{
+	int	i;
+	int	tmp;
+
+	i = swapper->stack_a.size;
+	tmp = swapper->stack_a.tab[swapper->stack_a.size - 1];
+	printf("(%d)", tmp);
+	while (i > 0)
+	{
+		swapper->stack_a.tab[i] = swapper->stack_a.tab[i - 1];
+		i--;
+	}
+	swapper->stack_a.tab[0] = tmp;
 }
