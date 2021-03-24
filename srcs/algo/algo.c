@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 15:36:24 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/24 16:00:04 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/24 16:36:29 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,11 @@ void	do_move(t_swapper *swapper, char *move)
 
 void	three_nb(t_swapper *swapper)
 {
-	printf("aled");
 	do_move(swapper, "sa");
 }
 
 void	push_swap(t_swapper *swapper)
 {
-	printf("salut");
 	if (swapper->stack_a.size == 3)
 		three_nb(swapper);
 }

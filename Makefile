@@ -59,6 +59,7 @@ clean:
 	@$(MAKE) clean -C ./libft
 	@printf "$(_PURPLE)[$(PUSH)] $(_END)$(_RED)[-]$(_END) Objects deleted!\n"
 	@rm -f $(OBJS)
+	@rm -f checker.o push_swap.o
 
 fclean: clean
 	@$(MAKE) fclean -C ./libft
