@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 15:36:24 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/25 15:49:45 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/25 16:06:33 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,17 +111,20 @@ void	three_nb(t_swapper *swapper)
 		do_move(swapper, "rra");
 }
 
-int	find_smallest(t_swapper *swapper)
+t_smallest	find_smallest(t_swapper *swapper)
 {
-	int	smallest;
+	t_smallest	smallest;
 	int	i;
 
-	smallest = swapper->stack_a.tab[0];
+	smallest.nb = swapper->stack_a.tab[0];
 	i = 0;
 	while (i < swapper->stack_a.size)
 	{
-		if (swapper->stack_a.tab[i] < smallest)
-			smallest = swapper->stack_a.tab[i];
+		if (swapper->stack_a.tab[i] < smallest.nb)
+		{
+			smallest.nb = swapper->stack_a.tab[i];
+			smallest.index = i;
+		}
 		i++;
 	}
 	return (smallest);
@@ -129,15 +132,25 @@ int	find_smallest(t_swapper *swapper)
 
 void	five_nb(t_swapper *swapper)
 {
-	int	smallest;
+	t_smallest	smallest;
 
 	smallest = find_smallest(swapper);
-	while (swapper->stack_a.tab[0] != smallest)
-		do_move(swapper, "ra");
+	while (swapper->stack_a.tab[0] != smallest.nb)
+	{
+		if (smallest.index > swapper->stack_a.size / 2)
+			do_move(swapper, "rra");
+		else
+			do_move(swapper, "ra");
+	}
 	do_move(swapper, "pb");
 	smallest = find_smallest(swapper);
-	while (swapper->stack_a.tab[0] != smallest)
-		do_move(swapper, "ra");
+	while (swapper->stack_a.tab[0] != smallest.nb)
+	{
+		if (smallest.index > swapper->stack_a.size / 2)
+			do_move(swapper, "rra");
+		else
+			do_move(swapper, "ra");
+	}
 	do_move(swapper, "pb");
 	while (!is_sorted(swapper))
 		three_nb(swapper);
