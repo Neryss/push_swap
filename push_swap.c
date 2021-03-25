@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:35:34 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/25 11:15:04 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/25 12:28:59 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_instru(t_swapper *swapper)
 {
-	t_list *new;
+	t_list	*new;
 
 	new = swapper->instru;
 	while (new)

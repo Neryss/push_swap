@@ -66,6 +66,6 @@ fclean: clean
 	@rm -f $(PUSH) $(CHECKER)
 
 norme:
-	@norminette srcs/*.c srcs/moves/*.c checker.c push_swap.c includes/push_swap.h
+	@norminette srcs/*.c srcs/moves/*.c srcs/algo/*.c checker.c push_swap.c includes/push_swap.h
 
 .PHONY: re clean fclean norme
