@@ -6,22 +6,22 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:35:24 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/25 12:28:37 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/25 14:20:17 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	check_dupes(int *tab, int i)
+int	check_dupes(t_swapper *swapper, int nb, int j)
 {
-	int	j;
+	int	i;
 
-	j = 0;
-	while (j < i - 1)
+	i = 0;
+	while (i < j)
 	{
-		if (tab[j] == tab[j + 1])
+		if (swapper->stack_a.tab[i] == nb)
 			return (1);
-		j++;
+		i++;
 	}
 	return (0);
 }
@@ -40,9 +40,11 @@ void	fill_stacks(char **argv, t_swapper *swapper)
 		if ((argv[i][0] == '-' || argv[i][0] == '+')
 			&& (argv[i][1] == '-' || argv[i][1] == '+'))
 			close_program(1);
-		swapper->stack_a.tab[j++] = ft_atoi(argv[i++]);
-		if (check_dupes(swapper->stack_a.tab, j))
+		swapper->stack_a.tab[j] = ft_atoi(argv[i]);
+		if (check_dupes(swapper, swapper->stack_a.tab[j], j))
 			close_program(1);
+		i++;
+		j++;
 	}
 }
 
