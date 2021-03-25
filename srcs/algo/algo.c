@@ -6,11 +6,25 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 15:36:24 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/24 16:36:29 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/25 11:15:08 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+
+int	is_sorted(t_swapper *swapper)
+{
+	int	i;
+
+	i = 0;
+	while (i < swapper->stack_a.size - 1)
+	{
+		if (swapper->stack_a.tab[i] > swapper->stack_a.tab[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 void	do_move(t_swapper *swapper, char *move)
 {
@@ -80,4 +94,6 @@ void	push_swap(t_swapper *swapper)
 {
 	if (swapper->stack_a.size == 3)
 		three_nb(swapper);
+	if (is_sorted(swapper))
+		push_swap(swapper);
 }

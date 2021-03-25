@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:35:24 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/24 13:56:45 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/25 11:34:29 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ void	fill_stacks(char **argv, t_swapper *swapper)
 	j = 0;
 	while (i < swapper->stack_a.size + 1)
 	{
+		if ((argv[i][0] == '-' || argv[i][0] == '+') && ft_strlen(argv[i]) == 1)
+			close_program(1);
+		if ((argv[i][0] == '-' || argv[i][0] == '+') && (argv[i][1] == '-' || argv[i][1] == '+'))
+			close_program(1);
 		swapper->stack_a.tab[j++] = ft_atoi(argv[i++]);
 		if (check_dupes(swapper->stack_a.tab, j))
 			close_program(1);

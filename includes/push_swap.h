@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:43:15 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/24 16:50:09 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/25 11:10:26 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include "../libft/libft.h"
 
-# define DEBUG 0
+# define DEBUG 1
 
 typedef struct s_stack
 {
@@ -33,6 +33,8 @@ typedef struct s_swapper
 	t_list	*instru;
 }				t_swapper;
 
+
+int		is_sorted(t_swapper *swapper);
 void	swap_int(int *a, int *b);
 void	minus_one_stack(t_stack *stack);
 void	plus_one_stack(t_stack *stack);
