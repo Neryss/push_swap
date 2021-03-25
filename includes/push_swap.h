@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:43:15 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/25 14:02:02 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/25 15:00:37 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_swapper
 }				t_swapper;
 
 int		is_sorted(t_swapper *swapper);
+int		is_b_sorted(t_swapper *swapper);
 void	swap_int(int *a, int *b);
 void	minus_one_stack(t_stack *stack);
 void	plus_one_stack(t_stack *stack);
@@ -53,6 +54,7 @@ void	move_rra(t_swapper *swapper);
 void	move_rrb(t_swapper *swapper);
 void	move_rrr(t_swapper *swapper);
 void	display_stacks(t_swapper *swapper);
+void	display(t_swapper *swapper);
 
 void	push_swap(t_swapper *swapper);
 
