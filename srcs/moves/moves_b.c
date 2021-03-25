@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 10:39:27 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/25 16:33:38 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/25 16:41:33 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	move_pb(t_swapper *swapper)
 		minus_one_stack(&swapper->stack_a);
 	}
 }
-//TODO : there's an issue with this bad boy
 
 void	move_rb(t_swapper *swapper)
 {
