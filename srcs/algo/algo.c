@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 15:36:24 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/25 16:06:33 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/25 16:21:44 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,12 +152,22 @@ void	five_nb(t_swapper *swapper)
 			do_move(swapper, "ra");
 	}
 	do_move(swapper, "pb");
+	// display_stacks(swapper);
 	while (!is_sorted(swapper))
-		three_nb(swapper);
+	{
+		if (swapper->stack_a.size == 3)
+			three_nb(swapper);
+		else if (swapper->stack_a.size == 2)
+			do_move(swapper, "sa");
+	}
 	while (!is_b_rev_sorted(swapper))
 		do_move(swapper, "rb");
 	do_move(swapper, "pa");
+	display_stacks(swapper);
 	do_move(swapper, "pa");
+	display_stacks(swapper);
+	while (1)
+		;
 }
 
 void	push_swap(t_swapper *swapper)

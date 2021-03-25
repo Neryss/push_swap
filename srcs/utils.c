@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 10:58:44 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/25 14:28:57 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/25 16:31:29 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ void	display_stacks(t_swapper *swapper)
 	printf("B############B\n");
 	printf("stack b size : %d\n", swapper->stack_b.size);
 	while (i < swapper->stack_b.size)
-		printf("[%d]\n", swapper->stack_b.tab[i++]);
+	{
+		printf("[%d](%d)\n", swapper->stack_b.tab[i], i);
+		i++;
+	}
 }
 
 void	display(t_swapper *swapper)
