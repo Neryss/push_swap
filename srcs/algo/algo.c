@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 15:36:24 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/25 15:04:47 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/25 15:44:18 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ int	is_sorted(t_swapper *swapper)
 	return (1);
 }
 
-int	is_b_sorted(t_swapper *swapper)
+int	is_b_rev_sorted(t_swapper *swapper)
 {
 	int	i;
 
 	i = 0;
 	while (i < swapper->stack_b.size - 1)
 	{
-		if (swapper->stack_b.tab[i] > swapper->stack_b.tab[i + 1])
+		if (swapper->stack_b.tab[i] < swapper->stack_b.tab[i + 1])
 			return (0);
 		i++;
 	}
@@ -116,7 +116,7 @@ int	find_smallest(t_swapper *swapper)
 	int	smallest;
 	int	i;
 
-	smallest = 0;
+	smallest = swapper->stack_a.tab[0];
 	i = 0;
 	while (i < swapper->stack_a.size)
 	{
@@ -132,27 +132,24 @@ void	five_nb(t_swapper *swapper)
 	int	smallest;
 
 	smallest = find_smallest(swapper);
-	printf("%d:\n", smallest);
+	// printf("%d:\n", smallest);
 	while (swapper->stack_a.tab[0] != smallest)
-	{
 		do_move(swapper, "ra");
-		if (swapper->stack_a.tab[0 == smallest])
-			do_move(swapper, "pb");
-	}
+	do_move(swapper, "pb");
+	smallest = find_smallest(swapper);
 	while (swapper->stack_a.tab[0] != smallest)
-	{
 		do_move(swapper, "ra");
-		if (swapper->stack_a.tab[0 == smallest])
-			do_move(swapper, "pb");
-	}
-	while (!is_b_sorted(swapper))
-		do_move(swapper, "sb");
-	if (swapper->stack_a.size == 2)
-		do_move(swapper, "sa");
-	if (swapper->stack_a.size == 3)
+	do_move(swapper, "pb");
+	while (!is_sorted(swapper))
 		three_nb(swapper);
+	display_stacks(swapper);
+	// while (1)
+	// 	;
+	while (!is_b_rev_sorted(swapper))
+		do_move(swapper, "rb");
 	do_move(swapper, "pa");
 	do_move(swapper, "pa");
+	display_stacks(swapper);
 }
 
 void	push_swap(t_swapper *swapper)
@@ -164,6 +161,7 @@ void	push_swap(t_swapper *swapper)
 		three_nb(swapper);
 	else if (swapper->stack_a.size == 5 || swapper->stack_a.size == 4)
 		five_nb(swapper);
+	printf("%d\n", is_sorted(swapper));
 	if (!is_sorted(swapper))
 		push_swap(swapper);
 	display_stacks(swapper);
