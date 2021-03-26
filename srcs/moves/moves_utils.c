@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 10:40:25 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/25 16:26:05 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 09:54:13 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	minus_one_stack(t_stack *stack)
 {
 	int	i;
 
-	stack->size -= 1;
 	i = 0;
 	if (stack->size == 0)
 		return ;
@@ -47,6 +46,7 @@ void	minus_one_stack(t_stack *stack)
 		stack->tab[i] = stack->tab[i + 1];
 		i++;
 	}
+	stack->size -= 1;
 }
 
 void	move_ss(t_swapper *swapper)
