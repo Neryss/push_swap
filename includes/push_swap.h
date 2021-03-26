@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:43:15 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/26 12:30:12 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 12:47:49 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void		move_rrb(t_swapper *swapper);
 void		move_rrr(t_swapper *swapper);
 void		display_stacks(t_swapper *swapper);
 void		display(t_swapper *swapper);
+void		sort_int_tab(int *tab, int size);
 
 void		push_swap(t_swapper *swapper);
 t_smallest	find_smallest_b(t_swapper *swapper);

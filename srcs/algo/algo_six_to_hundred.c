@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 11:51:59 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/26 12:35:52 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 12:50:25 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ void	sort_less_median(t_swapper *swapper)
 			do_move(swapper, "ra");
 		}
 	}
+	display_stacks(swapper);
 }
 
 
