@@ -17,7 +17,7 @@ You can enter negative values such as follows `./checker -1 -3 4 5` but it will 
 
 # Push_swap
 
-[push_swap] will sort the X numbers you'll pass as arguments with the help of two stacks, a and b, it will use the following moves/rules set :
+__push_swap__ will sort the X numbers you'll pass as arguments with the help of two stacks, a and b, it will use the following moves/rules set :
 
 - `sa` : swap a - swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements.
 - `sb` :  swap b - swap the first 2 elements at the top of stack b. Do nothing if there is only one or no elements.
@@ -33,24 +33,24 @@ You can enter negative values such as follows `./checker -1 -3 4 5` but it will 
 
 ### Usage
 
-You can use [push_swap] like this :
+You can use __push_swap__ like this :
 ```
 ./push_swap 2 4 1 3 5
 ```
 
 If you want to get the number of moves in which it sorted the values you can use the same command followed by `| wc -l`
-It will count the number of line that [push_swap] outputs, since the programs must write the moves it made to sort everything to later, pass them to [checker].
+It will count the number of line that __push_swap__ outputs, since the programs must write the moves it made to sort everything to later, pass them to __checker__.
 
 ---
 
 # Checker
 
-[checker] uses the sames rules that [push_swap] follows, same parsing, moves and so on.
-It will check if the sorting was done correctly by [push_swap] and will receive the moves written by the later in the standard input, execute them and check if everything is sorted correctly. Basically it's a kind of anti cheat used to check if we didn't cut any move or sorted using something else.
+__checker__ uses the sames rules that __push_swap__ follows, same parsing, moves and so on.
+It will check if the sorting was done correctly by __push_swap__ and will receive the moves written by the later in the standard input, execute them and check if everything is sorted correctly. Basically it's a kind of anti cheat used to check if we didn't cut any move or sorted using something else.
 
 ### Usage
 
-You can use [checker] like this :
+You can use __checker__ like this :
 ```
 ./checker 2 4 1 3 5
 ```
@@ -67,7 +67,7 @@ If you want to use them both at the same time, which is the way intended, you ca
 ARG="2 4 1 3 5" ./push_swap $ARG | ./checker $ARG;
 ```
 
-It will first sort everything, then check if everything could be sorted with the command given by [push_swap].
+It will first sort everything, then check if everything could be sorted with the command given by __push_swap__.
 
 ---
 
