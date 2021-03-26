@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 15:36:24 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/26 11:15:07 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 11:43:57 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,21 @@ int		find_median(t_swapper *swapper)
 {
 	int	*array;
 	int	i;
+	int	median;
 
 	i = 0;
 	array = malloc(sizeof(int) * swapper->stack_a.size);
 	if (!array)
 		close_program(1);
-	while (i < )
+	while (i < swapper->stack_a.size)
+	{
+		array[i] = swapper->stack_a.tab[i];
+		i++;
+	}
+	ft_sort_int_tab(array, swapper->stack_a.size);
+	median = array[swapper->stack_a.size / 2];
+	printf("median is (%d)\n", median);
+	return (median);
 }
 
 void	six_to_hundreds(t_swapper *swapper)
@@ -99,6 +108,7 @@ void	six_to_hundreds(t_swapper *swapper)
 	int	median;
 
 	median = find_median(swapper);
+	while ()
 }
 
 void	push_swap(t_swapper *swapper)
