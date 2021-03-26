@@ -33,7 +33,8 @@ SRCS = srcs/parsing.c \
 		srcs/moves/moves_utils.c \
 		srcs/algo/algo.c \
 		srcs/algo/algo_moves.c \
-		srcs/algo/algo_utils.c
+		srcs/algo/algo_utils.c \
+		srcs/algo/six_to_hundred.c 
 OBJS = $(SRCS:.c=.o)
 
 

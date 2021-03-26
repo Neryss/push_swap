@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 15:36:24 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/26 11:43:57 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 11:56:27 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,35 +82,6 @@ void	five_nb(t_swapper *swapper)
 	do_move(swapper, "pa");
 }
 
-int		find_median(t_swapper *swapper)
-{
-	int	*array;
-	int	i;
-	int	median;
-
-	i = 0;
-	array = malloc(sizeof(int) * swapper->stack_a.size);
-	if (!array)
-		close_program(1);
-	while (i < swapper->stack_a.size)
-	{
-		array[i] = swapper->stack_a.tab[i];
-		i++;
-	}
-	ft_sort_int_tab(array, swapper->stack_a.size);
-	median = array[swapper->stack_a.size / 2];
-	printf("median is (%d)\n", median);
-	return (median);
-}
-
-void	six_to_hundreds(t_swapper *swapper)
-{
-	int	median;
-
-	median = find_median(swapper);
-	while ()
-}
-
 void	push_swap(t_swapper *swapper)
 {
 	if (swapper->stack_a.size == 2)
@@ -120,6 +91,7 @@ void	push_swap(t_swapper *swapper)
 	else if (swapper->stack_a.size == 5 || swapper->stack_a.size == 4)
 		five_nb(swapper);
 	else if (swapper->stack_a.size > 5 && swapper->stack_a.size <= 100)
+		six_to_hundreds(swapper);
 	if (!is_sorted(swapper))
 		push_swap(swapper);
 }
