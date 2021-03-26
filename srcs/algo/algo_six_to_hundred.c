@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 11:51:59 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/26 13:01:30 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 13:16:22 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ void	push_more_median(t_swapper *swapper)
 	int	count;
 
 	median = find_median(swapper);
-	count = swapper->stack_a.size - (swapper->stack_a.size / 2) - 1;
+	count = swapper->stack_a.size - (swapper->stack_a.size / 2);
 	while (count)
 	{
-		if (swapper->stack_a.tab[0] > median)
+		if (swapper->stack_a.tab[0] >= median)
 		{
 			do_move(swapper, "pb");
 			count--;
@@ -68,6 +68,7 @@ void	sort_more_median(t_swapper *swapper)
 				s_b.index--;
 			}
 			do_move(swapper, "pa");
+			do_move(swapper, "ra");
 		}
 		else
 		{
@@ -121,5 +122,5 @@ void	six_to_hundreds(t_swapper *swapper)
 	sort_less_median(swapper);
 	sort_more_median(swapper);
 	// do_move(swapper, "ra");
-	display_stacks(swapper);
+	// display_stacks(swapper);
 }
