@@ -31,7 +31,9 @@ SRCS = srcs/parsing.c \
 		srcs/moves/moves_a.c \
 		srcs/moves/moves_b.c \
 		srcs/moves/moves_utils.c \
-		srcs/algo/algo.c
+		srcs/algo/algo.c \
+		srcs/algo/algo_moves.c \
+		srcs/algo/algo_utils.c
 OBJS = $(SRCS:.c=.o)
 
 
@@ -66,6 +68,6 @@ fclean: clean
 	@rm -f $(PUSH) $(CHECKER)
 
 norme:
-	@norminette srcs/*.c srcs/moves/*.c srcs/algo/*.c checker.c push_swap.c includes/push_swap.h
+	@norminette srcs/*.c srcs/moves/*.c srcs/algo/*.c checker.c push_swap.c includes/
 
 .PHONY: re clean fclean norme

@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 10:58:44 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/25 16:31:29 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 10:10:00 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	display_stacks(t_swapper *swapper)
 void	display(t_swapper *swapper)
 {
 	int	i;
-    int	min;
+	int	min;
 
 	if (swapper->stack_a.size < swapper->stack_b.size)
 		min = swapper->stack_b.size;
