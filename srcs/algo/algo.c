@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 15:36:24 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/25 16:39:36 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 10:02:07 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,6 @@ void	do_move(t_swapper *swapper, char *move)
 
 void	three_nb(t_swapper *swapper)
 {
-	// display_stacks(swapper);
 	if ((swapper->stack_a.tab[0] > swapper->stack_a.tab[1])
 		&& (swapper->stack_a.tab[0] < swapper->stack_a.tab[2]))
 		do_move(swapper, "sa");
@@ -152,7 +151,6 @@ void	five_nb(t_swapper *swapper)
 			do_move(swapper, "ra");
 	}
 	do_move(swapper, "pb");
-	// display_stacks(swapper);
 	while (!is_sorted(swapper))
 	{
 		if (swapper->stack_a.size == 3)
@@ -161,19 +159,9 @@ void	five_nb(t_swapper *swapper)
 			do_move(swapper, "sa");
 	}
 	while (!is_b_rev_sorted(swapper))
-	{
-		printf("SORTING B\n");
 		do_move(swapper, "rb");
-	}
-	display_stacks(swapper);
 	do_move(swapper, "pa");
-	printf("HHHHHHHHHHHHHHH\n");
-	display_stacks(swapper);
-	printf("DDDDDDDDDDDDDDD\n");
 	do_move(swapper, "pa");
-	display_stacks(swapper);
-	while (1)
-		;
 }
 
 void	push_swap(t_swapper *swapper)

@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 16:00:08 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/25 16:46:47 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 10:05:57 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ void	move_pa(t_swapper *swapper)
 	if (swapper->stack_b.size)
 	{
 		plus_one_stack(&swapper->stack_a);
-		display_stacks(swapper);
-		printf("a [%d], b [%d]\n", swapper->stack_a.tab[0], swapper->stack_b.tab[1]);
 		swapper->stack_a.tab[0] = swapper->stack_b.tab[0];
 		minus_one_stack(&swapper->stack_b);
 	}

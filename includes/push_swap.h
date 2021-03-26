@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:43:15 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/25 16:00:56 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 10:05:36 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include "../libft/libft.h"
 
-# define DEBUG 1
+# define DEBUG 0
 
 typedef struct s_stack
 {
