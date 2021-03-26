@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 11:51:59 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/26 14:03:16 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 14:21:45 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,18 @@ void	sort_more_median(t_swapper *swapper)
 	// 			;
 }
 
+void	test(t_swapper *swapper)
+{
+	t_smallest	s_b;
+	t_biggest	b_b;
+
+	while (swapper->stack_b.size)
+	{
+		s_b = find_smallest_b(swapper);
+		b_b = find_biggest(swapper->stack_b);
+	}
+}
+
 void	sort_less_median(t_swapper *swapper)
 {
 	t_smallest	s_b;
@@ -116,10 +128,9 @@ void	sort_less_median(t_swapper *swapper)
 	{
 		s_b = find_smallest_b(swapper);
 		b_b = find_biggest(swapper->stack_b);
-		display_stacks(swapper);
+		// display_stacks(swapper);
 		if (s_b.index <= b_b.index)
 		{
-			printf("yo\n");
 			while (s_b.index > 0)
 			{
 				do_move(swapper, "rb");
@@ -131,7 +142,7 @@ void	sort_less_median(t_swapper *swapper)
 		}
 		else
 		{
-			if (b_b.index < swapper->stack_b.size / 2)
+			if (b_b.index < (swapper->stack_b.size / 2) + 1)
 			{
 				while (b_b.index > 0)
 				{
@@ -155,6 +166,7 @@ void	sort_less_median(t_swapper *swapper)
 		do_move(swapper, "rra");
 		rotate--;
 	}
+	// display_stacks(swapper);
 }
 
 
