@@ -15,7 +15,7 @@ You can enter negative values such as follows `./checker -1 -3 4 5` but it will 
 
 ---
 
-## Push_swap
+# Push_swap
 
 [push_swap] will sort the X numbers you'll pass as arguments with the help of two stacks, a and b, it will use the following moves/rules set :
 
@@ -31,7 +31,7 @@ You can enter negative values such as follows `./checker -1 -3 4 5` but it will 
 - `rrb` : reverse rotate b - shift down all elements of stack b by 1. The last element becomes the first one.
 - `rrr` : rra and rrb at the same time.
 
-# Usage
+### Usage
 
 You can use [push_swap] like this :
 ```
@@ -43,12 +43,12 @@ It will count the number of line that [push_swap] outputs, since the programs mu
 
 ---
 
-## Checker
+# Checker
 
 [checker] uses the sames rules that [push_swap] follows, same parsing, moves and so on.
 It will check if the sorting was done correctly by [push_swap] and will receive the moves written by the later in the standard input, execute them and check if everything is sorted correctly. Basically it's a kind of anti cheat used to check if we didn't cut any move or sorted using something else.
 
-# Usage
+### Usage
 
 You can use [checker] like this :
 ```
@@ -59,7 +59,7 @@ Then you'll need to enter the moves you want to sort with and press `CTRL+D` to 
 
 ---
 
-## Using both of them
+# Using both of them
 
 If you want to use them both at the same time, which is the way intended, you can use this command in a bash terminal :
 
