@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 11:51:59 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/26 14:21:45 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/26 14:41:09 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,9 @@ void	sort_more_median(t_swapper *swapper)
 	{
 		s_b = find_smallest_b(swapper);
 		b_b = find_biggest(swapper->stack_b);
+		display_stacks(swapper);
+		printf("smallest | %d | id %d\n", s_b.nb, s_b.index);
+		printf("biggest  | %d | id %d\n", b_b.nb, b_b.index);
 		if (s_b.index <= b_b.index)
 		{
 			while (s_b.index > 0)
@@ -72,6 +75,7 @@ void	sort_more_median(t_swapper *swapper)
 			do_move(swapper, "pa");
 			do_move(swapper, "ra");
 		}
+		// TODO : ERROR HERE
 		else
 		{
 			if (b_b.index < swapper->stack_b.size / 2)
@@ -84,7 +88,8 @@ void	sort_more_median(t_swapper *swapper)
 			}
 			else
 			{
-				while (b_b.index < swapper->stack_b.size + 1)
+				printf("yo\n");
+				while (b_b.index <= swapper->stack_b.size)
 				{
 					do_move(swapper, "rra");
 					b_b.index++;
@@ -93,15 +98,14 @@ void	sort_more_median(t_swapper *swapper)
 			rotate++;
 			do_move(swapper, "pa");
 		}
+		display_stacks(swapper);
 	}
 	while (rotate)
 	{
 		do_move(swapper, "ra");
 		rotate--;
 	}
-	// display_stacks(swapper);
-	// 		while (1)
-	// 			;
+	display_stacks(swapper);
 }
 
 void	test(t_swapper *swapper)
@@ -128,7 +132,7 @@ void	sort_less_median(t_swapper *swapper)
 	{
 		s_b = find_smallest_b(swapper);
 		b_b = find_biggest(swapper->stack_b);
-		// display_stacks(swapper);
+		display_stacks(swapper);
 		if (s_b.index <= b_b.index)
 		{
 			while (s_b.index > 0)
@@ -173,6 +177,10 @@ void	sort_less_median(t_swapper *swapper)
 void	six_to_hundreds(t_swapper *swapper)
 {
 	sort_less_median(swapper);
+	display_stacks(swapper);
 	sort_more_median(swapper);
+	display_stacks(swapper);
+	while (1)
+		;
 	// do_move(swapper, "sa");
 }
