@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:43:15 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/29 11:02:08 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/29 11:48:24 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ void		push_swap(t_swapper *swapper);
 t_smallest	find_smallest_b(t_swapper *swapper);
 t_biggest	find_biggest(t_stack stack);
 void		six_to_hundreds(t_swapper *swapper);
+void		small_algos(t_swapper *swapper);
+t_smallest	find_smallest(t_swapper *swapper);
 int			find_median(t_swapper *swapper);
 int			is_b_rev_sorted(t_swapper *swapper);
 int			is_sorted(t_swapper *swapper);

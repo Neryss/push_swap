@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 11:32:43 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/29 11:33:47 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/29 11:48:15 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,23 @@ int	find_median(t_swapper *swapper)
 	if (DEBUG)
 		printf("median is (%d)\n", median);
 	return (median);
+}
+
+t_smallest	find_smallest(t_swapper *swapper)
+{
+	t_smallest	smallest;
+	int			i;
+
+	smallest.nb = swapper->stack_a.tab[0];
+	i = 0;
+	while (i < swapper->stack_a.size)
+	{
+		if (swapper->stack_a.tab[i] < smallest.nb)
+		{
+			smallest.nb = swapper->stack_a.tab[i];
+			smallest.index = i;
+		}
+		i++;
+	}
+	return (smallest);
 }
