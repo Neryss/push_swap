@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 10:15:08 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/26 12:47:26 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/29 11:33:19 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,25 +101,4 @@ void	sort_int_tab(int *tab, int size)
 			i++;
 		}
 	}
-}
-int	find_median(t_swapper *swapper)
-{
-	int	*array;
-	int	i;
-	int	median;
-
-	i = 0;
-	array = malloc(sizeof(int) * swapper->stack_a.size);
-	if (!array)
-		close_program(1);
-	while (i < swapper->stack_a.size)
-	{
-		array[i] = swapper->stack_a.tab[i];
-		i++;
-	}
-	sort_int_tab(array, swapper->stack_a.size);
-	median = array[swapper->stack_a.size / 2];
-	if (DEBUG)
-		printf("median is (%d)\n", median);
-	return (median);
 }
