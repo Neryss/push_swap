@@ -36,7 +36,9 @@ SRCS = srcs/parsing.c \
 		srcs/algo/algo_utils.c \
 		srcs/algo/algo_utils2.c \
 		srcs/algo/algo_six_to_hundred.c \
-		srcs/algo/small_algos.c
+		srcs/algo/small_algos.c \
+		srcs/algo/algo_median.c \
+		srcs/algo/algo_hundreds.c
 OBJS = $(SRCS:.c=.o)
 
 

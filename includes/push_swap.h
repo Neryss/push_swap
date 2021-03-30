@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:43:15 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/30 15:04:35 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/30 17:36:54 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,10 @@ void		move_rrr(t_swapper *swapper);
 void		display_stacks(t_swapper *swapper);
 void		display(t_swapper *swapper);
 void		sort_int_tab(int *tab, int size);
+void		push_more_median(t_swapper *swapper);
+void		push_less_median(t_swapper *swapper);
+void		do_sort_things(t_smallest *s_b, t_smallest *b_b
+, t_swapper *swapper, int *rotate);
 
 void		push_swap(t_swapper *swapper);
 t_smallest	find_smallest_b(t_swapper *swapper);
@@ -80,6 +84,7 @@ t_smallest	find_smallest(t_swapper *swapper);
 int			find_median(t_swapper *swapper);
 int			is_b_rev_sorted(t_swapper *swapper);
 int			is_sorted(t_swapper *swapper);
+int			distance_to_top(t_swapper *swapper, t_smallest *nb);
 void		do_move(t_swapper *swapper, char *move);
 
 #endif
