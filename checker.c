@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:35:29 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/30 15:55:31 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/30 16:15:47 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ void	check_sorted(t_swapper *swapper)
 		}
 		i++;
 	}
+	display(swapper);
 	printf("OK\n");
+	while (1)
+		;
 }
 
 int	main(int argc, char **argv)
