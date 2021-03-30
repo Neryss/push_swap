@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 11:51:59 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/29 11:26:21 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/30 13:38:14 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,19 @@ void	do_rotate(t_swapper *swapper, int rotate)
 		do_move(swapper, "ra");
 		rotate--;
 	}
+}
+
+int	distance_to_top(t_swapper *swapper, t_smallest *nb)
+{
+	int	i;
+
+	i = nb->index;
+	if (i > swapper->stack_b.size / 2)
+	{
+		while (i <= swapper->stack_b.size)
+			i++;
+	}
+	return (i);
 }
 
 void	sort_more_median(t_swapper *swapper, int side)
