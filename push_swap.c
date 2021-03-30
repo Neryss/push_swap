@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:35:34 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/25 12:28:59 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/30 16:04:14 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(int argc, char **argv)
 	t_swapper	swapper;
 
 	check_args(argc, argv, &swapper);
+	display_stacks(&swapper);
 	if (is_sorted(&swapper))
 		close_program(0);
 	push_swap(&swapper);

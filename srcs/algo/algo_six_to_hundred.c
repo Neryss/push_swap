@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 11:51:59 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/30 13:38:14 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/30 14:58:10 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	distance_to_top(t_swapper *swapper, t_smallest *nb)
 void	sort_more_median(t_swapper *swapper, int side)
 {
 	t_smallest	s_b;
-	t_biggest	b_b;
+	t_smallest	b_b;
 	int			rotate;
 
 	if (side == 1)
@@ -86,26 +86,30 @@ void	sort_more_median(t_swapper *swapper, int side)
 	while (swapper->stack_b.size)
 	{
 		s_b = find_smallest_b(swapper);
+		s_b.dist = distance_to_top(swapper, &s_b);
 		b_b = find_biggest(swapper->stack_b);
-		if (s_b.index <= b_b.index)
+		b_b.dist = distance_to_top(swapper, &b_b);
+		if (s_b.dist < b_b.dist)
 		{
-			while (s_b.index > 0)
+			if (s_b.index < swapper->stack_b.size / 2)
 			{
-				do_move(swapper, "rb");
-				s_b.index--;
+				while (swapper->stack_b.tab[0] != s_b.nb)
+					do_move(swapper, "rb");
+				do_move(swapper, "pa");
+				do_move(swapper, "ra");
 			}
-			do_move(swapper, "pa");
-			do_move(swapper, "ra");
+			else
+			{
+				while (swapper->stack_b.tab[0] != s_b.nb)
+					do_move(swapper, "rrb");
+			}
 		}
 		else
 		{
 			if (b_b.index < swapper->stack_b.size / 2)
 			{
-				while (b_b.index > 0)
-				{
+				while (swapper->stack_b.tab[0] != b_b.nb)
 					do_move(swapper, "rb");
-					b_b.index--;
-				}
 			}
 			else
 			{

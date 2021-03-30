@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:43:15 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/30 13:39:20 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/30 15:04:35 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,14 @@ typedef struct s_smallest
 {
 	int	nb;
 	int	index;
+	int	dist;
 }				t_smallest;
 
 typedef struct s_biggest
 {
 	int	nb;
 	int	index;
+	int	dist;
 }				t_biggest;
 
 int			is_sorted(t_swapper *swapper);
@@ -71,7 +73,7 @@ void		sort_int_tab(int *tab, int size);
 
 void		push_swap(t_swapper *swapper);
 t_smallest	find_smallest_b(t_swapper *swapper);
-t_biggest	find_biggest(t_stack stack);
+t_smallest	find_biggest(t_stack stack);
 void		six_to_hundreds(t_swapper *swapper);
 void		small_algos(t_swapper *swapper);
 t_smallest	find_smallest(t_swapper *swapper);

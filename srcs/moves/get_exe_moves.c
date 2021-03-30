@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 12:22:36 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/26 10:02:51 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/30 16:09:06 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	some_moves(t_swapper *swapper, t_list *new)
 		move_rrb(swapper);
 	else if (!ft_strcmp(new->content, "rrr"))
 		move_rrr(swapper);
-	else
+	else if (!ft_strlen(new->content))
 		close_program(1);
 }
 

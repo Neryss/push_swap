@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 11:46:31 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/29 11:50:05 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/30 15:09:26 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,10 @@ void	five_nb(t_swapper *swapper)
 void	small_algos(t_swapper *swapper)
 {
 	if (swapper->stack_a.size == 2)
-		do_move(swapper, "sa");
+	{
+		if (!is_sorted(swapper))
+			do_move(swapper, "sa");
+	}
 	else if (swapper->stack_a.size == 3)
 		three_nb(swapper);
 	else if (swapper->stack_a.size == 5 || swapper->stack_a.size == 4)

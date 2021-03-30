@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 10:15:08 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/29 11:33:19 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/30 14:54:35 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ t_smallest	find_smallest_b(t_swapper *swapper)
 	return (smallest);
 }
 
-t_biggest	find_biggest(t_stack stack)
+t_smallest	find_biggest(t_stack stack)
 {
-	t_biggest	biggest;
+	t_smallest	biggest;
 	int			i;
 
 	biggest.nb = stack.tab[0];
