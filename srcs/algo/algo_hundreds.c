@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:26 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/31 16:34:18 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 16:48:16 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,6 @@ void	push_quartile(t_swapper *swapper, int which)
 	{
 		if (count + quartile + 1 != swapper->stack_a.size)
 			count = swapper->stack_a.size - quartile - 1;
-		// printf("count + quartile = nb %d + %d = %d\n", count, quartile, count + quartile);
-		// printf("non : %d\n", count);
-		// display(swapper);
-		// while (1)
-		// 	;
 	}
 	if (which == 0 || which == 1)
 	{
@@ -102,6 +97,8 @@ void	sort_quartile(t_swapper *swapper)
 	}
 	do_rotate(swapper, rotate);
 }
+
+// TODO : fix median pushong shit
 
 void	push_quartiles(t_swapper *swapper)
 {
