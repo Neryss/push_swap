@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:26 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/31 13:22:07 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 14:14:23 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	find_q1(t_swapper *swapper, int which)
 		quartile = array[swapper->stack_a.size / 4];
 	else
 		quartile = array[(swapper->stack_a.size /4) * 3];
+	printf("quartile : %d\n", quartile);
 	return (quartile);
 }
 
@@ -61,7 +62,7 @@ void	push_quartile(t_swapper *swapper, int which)
 	{
 		while (count)
 		{
-			if (swapper->stack_a.tab[0] >= quartile)
+			if (swapper->stack_a.tab[0] > quartile)
 			{
 				do_move(swapper, "pb");
 				count--;
@@ -100,7 +101,7 @@ void	push_quartiles(t_swapper *swapper)
 	sort_quartile(swapper);
 	push_quartile(swapper, 3);
 	sort_quartile(swapper);
-	// display(swapper);
+	display(swapper);
 	while (1)
 		;
 	// do_rrotate(swapper, swapper->stack_a.size / 4);
