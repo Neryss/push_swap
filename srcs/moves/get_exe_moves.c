@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 12:22:36 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/30 16:09:06 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 13:42:27 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,69 +14,51 @@
 
 void	get_moves(t_swapper *swapper)
 {
-	t_list	*lst;
 	char	*line;
 	int		ret;
 
-	lst = NULL;
 	ret = 1;
 	while (ret)
 	{
 		ret = ft_gnl(0, &line);
 		if (ret == -1)
 			close_program(1);
-		if (ret == 0)
-		{
-			free(line);
-			return ;
-		}
-		if (*line)
-		{
-			ft_lstadd_back(&swapper->instru, ft_lstnew(ft_strdup(line)));
-			free(line);
-		}
+		if (ret == 1)
+			execute_moves(swapper, line);
+		free(line);
 	}
 }
 
-static void	some_moves(t_swapper *swapper, t_list *new)
+static void	some_moves(t_swapper *swapper, char *move)
 {
-	if (!ft_strcmp(new->content, "rb"))
+	if (!ft_strcmp(move, "rb"))
 		move_rb(swapper);
-	else if (!ft_strcmp(new->content, "rr"))
+	else if (!ft_strcmp(move, "rr"))
 		move_rr(swapper);
-	else if (!ft_strcmp(new->content, "rra"))
+	else if (!ft_strcmp(move, "rra"))
 		move_rra(swapper);
-	else if (!ft_strcmp(new->content, "rrb"))
+	else if (!ft_strcmp(move, "rrb"))
 		move_rrb(swapper);
-	else if (!ft_strcmp(new->content, "rrr"))
+	else if (!ft_strcmp(move, "rrr"))
 		move_rrr(swapper);
-	else if (!ft_strlen(new->content))
+	else if (!ft_strlen(move))
 		close_program(1);
 }
 
-void	execute_moves(t_swapper *swapper)
+void	execute_moves(t_swapper *swapper, char *move)
 {
-	t_list	*new;
-
-	new = swapper->instru;
-	while (new)
-	{
-		if (!ft_strcmp(new->content, "sa"))
-			move_sa(swapper);
-		else if (!ft_strcmp(new->content, "sb"))
-			move_sb(swapper);
-		else if (!ft_strcmp(new->content, "ss"))
-			move_ss(swapper);
-		else if (!ft_strcmp(new->content, "pa"))
-			move_pa(swapper);
-		else if (!ft_strcmp(new->content, "pb"))
-			move_pb(swapper);
-		else if (!ft_strcmp(new->content, "ra"))
-			move_ra(swapper);
-		else
-			some_moves(swapper, new);
-		if (DEBUG)
-			display_stacks(swapper);
-		new = new->next;
-	}
+	if (!ft_strcmp(move, "sa"))
+		move_sa(swapper);
+	else if (!ft_strcmp(move, "sb"))
+		move_sb(swapper);
+	else if (!ft_strcmp(move, "ss"))
+		move_ss(swapper);
+	else if (!ft_strcmp(move, "pa"))
+		move_pa(swapper);
+	else if (!ft_strcmp(move, "pb"))
+		move_pb(swapper);
+	else if (!ft_strcmp(move, "ra"))
+		move_ra(swapper);
+	else
+		some_moves(swapper, move);
 }

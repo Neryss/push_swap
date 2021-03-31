@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 16:00:08 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/26 10:05:57 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 13:48:20 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	move_ra(t_swapper *swapper)
 
 	tmp = swapper->stack_a.tab[0];
 	i = 0;
-	while (i < swapper->stack_a.size)
+	while (i < swapper->stack_a.size - 1)
 	{
 		swapper->stack_a.tab[i] = swapper->stack_a.tab[i + 1];
 		i++;
@@ -48,7 +48,7 @@ void	move_rra(t_swapper *swapper)
 	int	i;
 	int	tmp;
 
-	i = swapper->stack_a.size;
+	i = swapper->stack_a.size - 1;
 	tmp = swapper->stack_a.tab[swapper->stack_a.size - 1];
 	while (i > 0)
 	{

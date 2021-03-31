@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:35:29 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/30 16:39:48 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 13:18:41 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int	main(int argc, char **argv)
 
 	check_args(argc, argv, &swapper);
 	get_moves(&swapper);
-	execute_moves(&swapper);
 	check_sorted(&swapper);
 	close_program(0);
 }

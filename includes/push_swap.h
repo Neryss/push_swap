@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:43:15 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/31 11:08:35 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 13:24:42 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ typedef struct s_swapper
 {
 	t_stack	stack_a;
 	t_stack	stack_b;
-	t_list	*instru;
 }				t_swapper;
 
 typedef struct s_smallest
@@ -54,7 +53,7 @@ void		minus_one_stack(t_stack *stack);
 void		plus_one_stack(t_stack *stack);
 void		close_program(int error);
 void		get_moves(t_swapper *swapper);
-void		execute_moves(t_swapper *swapper);
+void		execute_moves(t_swapper *swapper, char *move);
 void		check_args(int argc, char **argv, t_swapper *swapper);
 void		move_sa(t_swapper *swapper);
 void		move_sb(t_swapper *swapper);

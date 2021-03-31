@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 10:16:43 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/26 10:17:16 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 13:21:16 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,27 @@ static void	do_move_part1(t_swapper *swapper, char *move)
 	if (!ft_strcmp(move, "sa"))
 	{
 		move_sa(swapper);
-		ft_lstadd_back(&swapper->instru, ft_lstnew(ft_strdup("sa")));
+		ft_putendl("sa");
 	}
 	else if (!ft_strcmp(move, "sb"))
 	{
 		move_sb(swapper);
-		ft_lstadd_back(&swapper->instru, ft_lstnew(ft_strdup("sb")));
+		ft_putendl("sb");
 	}
 	else if (!ft_strcmp(move, "ss"))
 	{
 		move_ss(swapper);
-		ft_lstadd_back(&swapper->instru, ft_lstnew(ft_strdup("ss")));
+		ft_putendl("ss");
 	}
 	else if (!ft_strcmp(move, "pa"))
 	{
 		move_pa(swapper);
-		ft_lstadd_back(&swapper->instru, ft_lstnew(ft_strdup("pa")));
+		ft_putendl("pa");
 	}
 	else if (!ft_strcmp(move, "pb"))
 	{
 		move_pb(swapper);
-		ft_lstadd_back(&swapper->instru, ft_lstnew(ft_strdup("pb")));
+		ft_putendl("pb");
 	}
 }
 
@@ -46,27 +46,27 @@ static void	do_move_part2(t_swapper *swapper, char *move)
 	if (!ft_strcmp(move, "ra"))
 	{
 		move_ra(swapper);
-		ft_lstadd_back(&swapper->instru, ft_lstnew(ft_strdup("ra")));
+		ft_putendl("ra");
 	}
 	else if (!ft_strcmp(move, "rb"))
 	{
 		move_rb(swapper);
-		ft_lstadd_back(&swapper->instru, ft_lstnew(ft_strdup("rb")));
+		ft_putendl("rb");
 	}
 	else if (!ft_strcmp(move, "rr"))
 	{
 		move_rr(swapper);
-		ft_lstadd_back(&swapper->instru, ft_lstnew(ft_strdup("rr")));
+		ft_putendl("rr");
 	}
 	else if (!ft_strcmp(move, "rra"))
 	{
 		move_rra(swapper);
-		ft_lstadd_back(&swapper->instru, ft_lstnew(ft_strdup("rra")));
+		ft_putendl("rra");
 	}
 	else if (!ft_strcmp(move, "rrb"))
 	{
 		move_rrb(swapper);
-		ft_lstadd_back(&swapper->instru, ft_lstnew(ft_strdup("rrb")));
+		ft_putendl("rrb");
 	}
 }
 
@@ -79,6 +79,6 @@ void	do_move(t_swapper *swapper, char *move)
 	if (!ft_strcmp(move, "rrr"))
 	{
 		move_rrr(swapper);
-		ft_lstadd_back(&swapper->instru, ft_lstnew(ft_strdup("rrr")));
+		ft_putendl("rrr");
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:35:24 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/25 14:20:17 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 14:01:52 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,12 @@ void	fill_stacks(char **argv, t_swapper *swapper)
 
 void	init_stacks(int argc, char **argv, t_swapper *swapper)
 {
-	swapper->instru = NULL;
 	swapper->stack_a.size = argc - 1;
 	swapper->stack_a.tab = malloc(sizeof(int) * swapper->stack_a.size);
 	if (!swapper->stack_a.tab)
 		close_program(1);
 	swapper->stack_b.size = 0;
-	swapper->stack_b.tab = malloc(sizeof(int) * swapper->stack_b.size);
+	swapper->stack_b.tab = malloc(sizeof(int) * swapper->stack_a.size);
 	if (!swapper->stack_b.tab)
 		close_program(1);
 	fill_stacks(argv, swapper);

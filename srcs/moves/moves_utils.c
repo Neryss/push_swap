@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 10:40:25 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/26 09:54:13 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 13:48:46 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	plus_one_stack(t_stack *stack)
 	int	i;
 
 	stack->size += 1;
-	i = stack->size;
+	i = stack->size - 1;
 	while (i > 0)
 	{
 		stack->tab[i] = stack->tab[i - 1];
@@ -41,7 +41,7 @@ void	minus_one_stack(t_stack *stack)
 	i = 0;
 	if (stack->size == 0)
 		return ;
-	while (i < stack->size)
+	while (i < stack->size - 1)
 	{
 		stack->tab[i] = stack->tab[i + 1];
 		i++;
