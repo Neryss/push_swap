@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 15:36:24 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/30 14:57:09 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 11:11:27 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	push_swap(t_swapper *swapper)
 	small_algos(swapper);
 	if (swapper->stack_a.size > 5 && swapper->stack_a.size <= 100)
 		six_to_hundreds(swapper);
+	else if (swapper->stack_a.size > 100)
+		hundreds_plus(swapper);
 	if (!is_sorted(swapper))
 		push_swap(swapper);
 }

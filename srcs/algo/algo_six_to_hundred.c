@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 11:51:59 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/30 17:10:13 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 11:08:21 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,15 @@ void	do_rotate(t_swapper *swapper, int rotate)
 	while (rotate)
 	{
 		do_move(swapper, "ra");
+		rotate--;
+	}
+}
+
+void	do_rrotate(t_swapper *swapper, int rotate)
+{
+	while (rotate)
+	{
+		do_move(swapper, "rra");
 		rotate--;
 	}
 }
@@ -50,7 +59,7 @@ void	do_sort_things(t_smallest *s_b, t_smallest *b_b
 	}
 }
 
-void	sort_more_median(t_swapper *swapper, int side)
+void	sort_medians(t_swapper *swapper, int side)
 {
 	t_smallest	s_b;
 	t_smallest	b_b;
@@ -74,6 +83,6 @@ void	sort_more_median(t_swapper *swapper, int side)
 
 void	six_to_hundreds(t_swapper *swapper)
 {
-	sort_more_median(swapper, 0);
-	sort_more_median(swapper, 1);
+	sort_medians(swapper, 0);
+	sort_medians(swapper, 1);
 }

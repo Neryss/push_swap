@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:43:15 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/30 17:36:54 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 11:08:35 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,11 @@ int			find_median(t_swapper *swapper);
 int			is_b_rev_sorted(t_swapper *swapper);
 int			is_sorted(t_swapper *swapper);
 int			distance_to_top(t_swapper *swapper, t_smallest *nb);
+void		sort_medians(t_swapper *swapper, int side);
 void		do_move(t_swapper *swapper, char *move);
+
+void		hundreds_plus(t_swapper *swapper);
+void		do_rotate(t_swapper *swapper, int rotate);
+void		do_rrotate(t_swapper *swapper, int rotate);
 
 #endif
