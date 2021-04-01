@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 12:00:03 by ckurt             #+#    #+#             */
-/*   Updated: 2021/04/01 13:07:04 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 13:22:55 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,28 @@ void	push_q3(t_swapper *swapper)
 
 void	push_q4(t_swapper *swapper)
 {
-	
+	int	quartile;
+	int	count;
+	int	size;
+
+	quartile = find_q1(swapper, 1);
+	size = swapper->stack_a.size;
+	count = swapper->stack_a.size / 4;
+	printf("quartile %d\ncount : %d\nsize : %d\n", quartile, count, swapper->stack_a.size);
+	// if (count + quartile + 1 != swapper->stack_a.size)
+	// 		count = swapper->stack_a.size - quartile - 3;
+	// display(swapper);
+	// while (1)
+	// 	;
+	while (count)
+	{
+		// printf("count during : %d\n", count);
+		if (swapper->stack_a.tab[0] >= quartile && swapper->stack_a.tab[0] <= size)
+		{
+			do_move(swapper, "pb");
+			count--;
+		}
+		else
+			do_move(swapper, "ra");
+	}
 }

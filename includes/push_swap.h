@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:43:15 by ckurt             #+#    #+#             */
-/*   Updated: 2021/04/01 13:04:59 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 13:08:47 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int			find_q1(t_swapper *swapper, int which);
 void		push_q1(t_swapper *swapper);
 void		push_q2(t_swapper *swapper);
 void		push_q3(t_swapper *swapper);
+void		push_q4(t_swapper *swapper);
 void		do_sort_things(t_smallest *s_b, t_smallest *b_b
 , t_swapper *swapper);
 

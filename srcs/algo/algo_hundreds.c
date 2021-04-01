@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:26 by ckurt             #+#    #+#             */
-/*   Updated: 2021/04/01 13:05:28 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 13:09:05 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,8 @@ void	push_quartiles(t_swapper *swapper)
 	push_q2(swapper);
 	sort_quartile(swapper);
 	push_q3(swapper);
+	sort_quartile(swapper);
+	push_q4(swapper);
 	sort_quartile(swapper);
 	display(swapper);
 	while (1)
