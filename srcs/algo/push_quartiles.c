@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 12:00:03 by ckurt             #+#    #+#             */
-/*   Updated: 2021/04/01 13:22:55 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 13:32:58 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	push_q3(t_swapper *swapper)
 	count = swapper->stack_a.size / 4;
 	// if (count + quartile + 1 != swapper->stack_a.size)
 	// 	count = swapper->stack_a.size - quartile - 1;
-	printf("median : %d\nquartile %d\ncount : %d\n", median, quartile, count);
+	//printf("median : %d\nquartile %d\ncount : %d\n", median, quartile, count);
 	while (count)
 	{
 		if (swapper->stack_a.tab[0] >= median && swapper->stack_a.tab[0] < quartile)
@@ -88,7 +88,7 @@ void	push_q4(t_swapper *swapper)
 	quartile = find_q1(swapper, 1);
 	size = swapper->stack_a.size;
 	count = swapper->stack_a.size / 4;
-	printf("quartile %d\ncount : %d\nsize : %d\n", quartile, count, swapper->stack_a.size);
+	//printf("quartile %d\ncount : %d\nsize : %d\n", quartile, count, swapper->stack_a.size);
 	// if (count + quartile + 1 != swapper->stack_a.size)
 	// 		count = swapper->stack_a.size - quartile - 3;
 	// display(swapper);

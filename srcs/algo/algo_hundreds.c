@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:26 by ckurt             #+#    #+#             */
-/*   Updated: 2021/04/01 13:09:05 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 13:30:57 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	sort_quartile(t_swapper *swapper)
 		b_b.dist = distance_to_top(swapper, &b_b);
 		do_sort_things(&s_b, &b_b, swapper);
 	}
-	do_rotate(swapper);
+	//do_rotate(swapper);
 }
 
 // TODO : fix median pushong shit
@@ -133,20 +133,24 @@ void	push_quartiles(t_swapper *swapper)
 	push_q1(swapper);
 	sort_quartile(swapper);
 	push_q2(swapper);
+	do_rotate(swapper);
 	sort_quartile(swapper);
 	push_q3(swapper);
+	do_rotate(swapper);
 	sort_quartile(swapper);
 	push_q4(swapper);
+	do_rotate(swapper);
 	sort_quartile(swapper);
-	display(swapper);
-	while (1)
+	do_rotate(swapper);
+	//display(swapper);
+	/*while (1)
 		;
 	// push_less_median(swapper);
 	// sort_medians(swapper, 0);
 	push_quartile(swapper, 1);
 	sort_quartile(swapper);
 	push_quartile(swapper, 3);
-	sort_quartile(swapper);
+	sort_quartile(swapper);*/
 	// do_rrotate(swapper, swapper->stack_a.size / 4);
 }
 
