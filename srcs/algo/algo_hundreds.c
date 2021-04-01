@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:26 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/31 16:48:16 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 10:59:45 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	find_q1(t_swapper *swapper, int which)
 		quartile = array[swapper->stack_a.size / 4];
 	else
 		quartile = array[(swapper->stack_a.size /4) * 3];
-	printf("quartile : %d\n", quartile);
+	// printf("quartile : %d\n", quartile);
 	return (quartile);
 }
 
@@ -100,19 +100,46 @@ void	sort_quartile(t_swapper *swapper)
 
 // TODO : fix median pushong shit
 
+void	push_less_median_quartile(t_swapper *swapper)
+{
+	int	median;
+	int	count;
+	int	quartile;
+	int	i;
+
+	i = 0;
+	quartile = find_q1(swapper, 0);
+	median = find_median(swapper);
+	count = swapper->stack_a.size / 4;
+	if (count + quartile + 1 != swapper->stack_a.size / 2)
+		count = (swapper->stack_a.size / 2) - quartile - 1;
+	while (count)
+	{
+		if (swapper->stack_a.tab[0] < median && swapper->stack_a.tab[0] > quartile)
+		{
+			do_move(swapper, "pb");
+			count--;
+		}
+		else
+			do_move(swapper, "ra");
+	}
+}
+
 void	push_quartiles(t_swapper *swapper)
 {
 	push_quartile(swapper, 0);
 	sort_quartile(swapper);
-	push_less_median(swapper);
-	sort_medians(swapper, 0);
+	push_less_median_quartile(swapper);
+	sort_quartile(swapper);
+	// push_less_median(swapper);
+	// sort_medians(swapper, 0);
 	push_quartile(swapper, 1);
 	sort_quartile(swapper);
-	// display(swapper);
-	// while (1)
-	// 	;
 	push_quartile(swapper, 3);
 	sort_quartile(swapper);
+	display(swapper);
+	while (1)
+		;
 	// do_rrotate(swapper, swapper->stack_a.size / 4);
 }
 
