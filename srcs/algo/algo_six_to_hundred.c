@@ -6,19 +6,19 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 11:51:59 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/31 11:08:21 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 12:56:32 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	do_rotate(t_swapper *swapper, int rotate)
+void	do_rotate(t_swapper *swapper)
 {
-	while (rotate)
-	{
+	t_smallest	smallest;
+
+	smallest = find_smallest(swapper);
+	while (swapper->stack_a.tab[0] != smallest.nb)
 		do_move(swapper, "ra");
-		rotate--;
-	}
 }
 
 void	do_rrotate(t_swapper *swapper, int rotate)
@@ -31,7 +31,7 @@ void	do_rrotate(t_swapper *swapper, int rotate)
 }
 
 void	do_sort_things(t_smallest *s_b, t_smallest *b_b
-, t_swapper *swapper, int *rotate)
+, t_swapper *swapper)
 {
 	if (s_b->dist < b_b->dist)
 	{
@@ -54,7 +54,6 @@ void	do_sort_things(t_smallest *s_b, t_smallest *b_b
 		else
 			while (swapper->stack_b.tab[0] != b_b->nb)
 				do_move(swapper, "rrb");
-		*rotate += 1;
 		do_move(swapper, "pa");
 	}
 }
@@ -63,22 +62,20 @@ void	sort_medians(t_swapper *swapper, int side)
 {
 	t_smallest	s_b;
 	t_smallest	b_b;
-	int			rotate;
 
 	if (side == 1)
 		push_more_median(swapper);
 	else
 		push_less_median(swapper);
-	rotate = 0;
 	while (swapper->stack_b.size)
 	{
 		s_b = find_smallest_b(swapper);
 		s_b.dist = distance_to_top(swapper, &s_b);
 		b_b = find_biggest(swapper->stack_b);
 		b_b.dist = distance_to_top(swapper, &b_b);
-		do_sort_things(&s_b, &b_b, swapper, &rotate);
+		do_sort_things(&s_b, &b_b, swapper);
 	}
-	do_rotate(swapper, rotate);
+	do_rotate(swapper);
 }
 
 void	six_to_hundreds(t_swapper *swapper)

@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:26 by ckurt             #+#    #+#             */
-/*   Updated: 2021/04/01 10:59:45 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 13:05:28 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	push_quartile(t_swapper *swapper, int which)
 	int	i;
 	int quartile;
 	i = 0;
-	if (which == 0)
+	if (which == 0 || which == 4)
 		quartile = find_q1(swapper, 0);
 	else
 		quartile = find_q1(swapper, 1);
@@ -52,6 +52,12 @@ void	push_quartile(t_swapper *swapper, int which)
 		if (count + quartile + 1 != swapper->stack_a.size)
 			count = swapper->stack_a.size - quartile - 1;
 	}
+	if (which == 4)
+	{
+		if (count + quartile != swapper->stack_a.size / 2)
+			count = swapper->stack_a.size / 2 - quartile;
+	}
+	printf("count : %d\n quartile : %d\n", count, quartile);
 	if (which == 0 || which == 1)
 	{
 		while (count)
@@ -84,18 +90,16 @@ void	sort_quartile(t_swapper *swapper)
 {
 	t_smallest	s_b;
 	t_smallest	b_b;
-	int			rotate;
 
-	rotate = 0;
 	while (swapper->stack_b.size)
 	{
 		s_b = find_smallest_b(swapper);
 		s_b.dist = distance_to_top(swapper, &s_b);
 		b_b = find_biggest(swapper->stack_b);
 		b_b.dist = distance_to_top(swapper, &b_b);
-		do_sort_things(&s_b, &b_b, swapper, &rotate);
+		do_sort_things(&s_b, &b_b, swapper);
 	}
-	do_rotate(swapper, rotate);
+	do_rotate(swapper);
 }
 
 // TODO : fix median pushong shit
@@ -111,8 +115,6 @@ void	push_less_median_quartile(t_swapper *swapper)
 	quartile = find_q1(swapper, 0);
 	median = find_median(swapper);
 	count = swapper->stack_a.size / 4;
-	if (count + quartile + 1 != swapper->stack_a.size / 2)
-		count = (swapper->stack_a.size / 2) - quartile - 1;
 	while (count)
 	{
 		if (swapper->stack_a.tab[0] < median && swapper->stack_a.tab[0] > quartile)
@@ -123,23 +125,26 @@ void	push_less_median_quartile(t_swapper *swapper)
 		else
 			do_move(swapper, "ra");
 	}
+	printf("%d\n", count);
 }
 
 void	push_quartiles(t_swapper *swapper)
 {
-	push_quartile(swapper, 0);
+	push_q1(swapper);
 	sort_quartile(swapper);
-	push_less_median_quartile(swapper);
+	push_q2(swapper);
 	sort_quartile(swapper);
+	push_q3(swapper);
+	sort_quartile(swapper);
+	display(swapper);
+	while (1)
+		;
 	// push_less_median(swapper);
 	// sort_medians(swapper, 0);
 	push_quartile(swapper, 1);
 	sort_quartile(swapper);
 	push_quartile(swapper, 3);
 	sort_quartile(swapper);
-	display(swapper);
-	while (1)
-		;
 	// do_rrotate(swapper, swapper->stack_a.size / 4);
 }
 

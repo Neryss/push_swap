@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:43:15 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/31 16:11:24 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 13:04:59 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,12 @@ void		display(t_swapper *swapper);
 void		sort_int_tab(int *tab, int size);
 void		push_more_median(t_swapper *swapper);
 void		push_less_median(t_swapper *swapper);
+int			find_q1(t_swapper *swapper, int which);
+void		push_q1(t_swapper *swapper);
+void		push_q2(t_swapper *swapper);
+void		push_q3(t_swapper *swapper);
 void		do_sort_things(t_smallest *s_b, t_smallest *b_b
-, t_swapper *swapper, int *rotate);
+, t_swapper *swapper);
 
 void		push_swap(t_swapper *swapper);
 t_smallest	find_smallest_b(t_swapper *swapper);
@@ -88,7 +92,7 @@ void		sort_medians(t_swapper *swapper, int side);
 void		do_move(t_swapper *swapper, char *move);
 
 void		hundreds_plus(t_swapper *swapper);
-void		do_rotate(t_swapper *swapper, int rotate);
+void		do_rotate(t_swapper *swapper);
 void		do_rrotate(t_swapper *swapper, int rotate);
 
 #endif
