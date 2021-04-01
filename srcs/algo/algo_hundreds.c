@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:26 by ckurt             #+#    #+#             */
-/*   Updated: 2021/04/01 13:30:57 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 13:53:05 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,15 +143,8 @@ void	push_quartiles(t_swapper *swapper)
 	sort_quartile(swapper);
 	do_rotate(swapper);
 	//display(swapper);
-	/*while (1)
-		;
-	// push_less_median(swapper);
-	// sort_medians(swapper, 0);
-	push_quartile(swapper, 1);
-	sort_quartile(swapper);
-	push_quartile(swapper, 3);
-	sort_quartile(swapper);*/
-	// do_rrotate(swapper, swapper->stack_a.size / 4);
+	//while (1)
+	//	;
 }
 
 

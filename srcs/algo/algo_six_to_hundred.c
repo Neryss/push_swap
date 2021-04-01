@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 11:51:59 by ckurt             #+#    #+#             */
-/*   Updated: 2021/04/01 12:56:32 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 13:59:33 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	do_rotate(t_swapper *swapper)
 	t_smallest	smallest;
 
 	smallest = find_smallest(swapper);
+	if (swapper->stack_a.tab[0] == smallest.nb)
+		return ;
 	while (swapper->stack_a.tab[0] != smallest.nb)
 		do_move(swapper, "ra");
 }
