@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:26 by ckurt             #+#    #+#             */
-/*   Updated: 2021/04/01 13:53:05 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 14:13:37 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,59 +31,8 @@ int	find_q1(t_swapper *swapper, int which)
 	if (which == 0)
 		quartile = array[swapper->stack_a.size / 4];
 	else
-		quartile = array[(swapper->stack_a.size /4) * 3];
-	// printf("quartile : %d\n", quartile);
+		quartile = array[3 * (swapper->stack_a.size / 4)];
 	return (quartile);
-}
-
-void	push_quartile(t_swapper *swapper, int which)
-{
-	int	count;
-	int	i;
-	int quartile;
-	i = 0;
-	if (which == 0 || which == 4)
-		quartile = find_q1(swapper, 0);
-	else
-		quartile = find_q1(swapper, 1);
-	count = swapper->stack_a.size / 4;
-	if (which == 3)
-	{
-		if (count + quartile + 1 != swapper->stack_a.size)
-			count = swapper->stack_a.size - quartile - 1;
-	}
-	if (which == 4)
-	{
-		if (count + quartile != swapper->stack_a.size / 2)
-			count = swapper->stack_a.size / 2 - quartile;
-	}
-	printf("count : %d\n quartile : %d\n", count, quartile);
-	if (which == 0 || which == 1)
-	{
-		while (count)
-		{
-			if (swapper->stack_a.tab[0] < quartile)
-			{
-				do_move(swapper, "pb");
-				count--;
-			}
-			else
-				do_move(swapper, "ra");
-		}
-	}
-	else
-	{
-		while (i <= count + 1)
-		{
-			if (swapper->stack_a.tab[0] >= quartile)
-			{
-				do_move(swapper, "pb");
-				i++;
-			}
-			else
-				do_move(swapper, "ra");
-		}
-	}
 }
 
 void	sort_quartile(t_swapper *swapper)
@@ -99,36 +48,9 @@ void	sort_quartile(t_swapper *swapper)
 		b_b.dist = distance_to_top(swapper, &b_b);
 		do_sort_things(&s_b, &b_b, swapper);
 	}
-	//do_rotate(swapper);
 }
 
-// TODO : fix median pushong shit
-
-void	push_less_median_quartile(t_swapper *swapper)
-{
-	int	median;
-	int	count;
-	int	quartile;
-	int	i;
-
-	i = 0;
-	quartile = find_q1(swapper, 0);
-	median = find_median(swapper);
-	count = swapper->stack_a.size / 4;
-	while (count)
-	{
-		if (swapper->stack_a.tab[0] < median && swapper->stack_a.tab[0] > quartile)
-		{
-			do_move(swapper, "pb");
-			count--;
-		}
-		else
-			do_move(swapper, "ra");
-	}
-	printf("%d\n", count);
-}
-
-void	push_quartiles(t_swapper *swapper)
+void	hundreds_plus(t_swapper *swapper)
 {
 	push_q1(swapper);
 	sort_quartile(swapper);
@@ -142,13 +64,4 @@ void	push_quartiles(t_swapper *swapper)
 	do_rotate(swapper);
 	sort_quartile(swapper);
 	do_rotate(swapper);
-	//display(swapper);
-	//while (1)
-	//	;
-}
-
-
-void	hundreds_plus(t_swapper *swapper)
-{
-	push_quartiles(swapper);
 }
