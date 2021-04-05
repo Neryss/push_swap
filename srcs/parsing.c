@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:35:24 by ckurt             #+#    #+#             */
-/*   Updated: 2021/04/05 16:39:59 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/05 16:56:03 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,7 @@ int	check_overflow(char *argv)
 			argv++;
 	}
 	if (ft_strcmp(argv, tmp))
-	{
-		free(tmp);
-		return (0);
-	}
+		close_program(1);
 	free(tmp);
 	return (1);
 }
@@ -71,8 +68,7 @@ void	fill_stacks(char **argv, t_swapper *swapper)
 			&& (argv[i][1] == '-' || argv[i][1] == '+'))
 			close_program(1);
 		swapper->stack_a.tab[j] = ft_atoi(argv[i]);
-		if (!check_overflow(argv[i]))
-			close_program(1);
+		check_overflow(argv[i]);
 		if (check_dupes(swapper, swapper->stack_a.tab[j], j))
 			close_program(1);
 		i++;
