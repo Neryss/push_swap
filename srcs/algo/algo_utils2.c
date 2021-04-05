@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 11:32:43 by ckurt             #+#    #+#             */
-/*   Updated: 2021/04/05 14:58:45 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/05 16:40:59 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	find_median(t_swapper *swapper)
 	}
 	sort_int_tab(array, swapper->stack_a.size);
 	median = array[swapper->stack_a.size / 2];
+	free(array);
 	return (median);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:35:24 by ckurt             #+#    #+#             */
-/*   Updated: 2021/04/05 10:37:00 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/05 16:39:59 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ int	check_dupes(t_swapper *swapper, int nb, int j)
 
 int	check_overflow(char *argv)
 {
+	char	*tmp;
+
+	tmp = ft_itoa(ft_atoi(argv));
 	if (*argv == '-')
 	{
 		argv++;
@@ -44,8 +47,12 @@ int	check_overflow(char *argv)
 		while (*argv == '0' && ft_strlen(argv) > 1)
 			argv++;
 	}
-	if (ft_strcmp(argv, ft_itoa(ft_atoi(argv))))
+	if (ft_strcmp(argv, tmp))
+	{
+		free(tmp);
 		return (0);
+	}
+	free(tmp);
 	return (1);
 }
 

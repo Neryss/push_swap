@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:26 by ckurt             #+#    #+#             */
-/*   Updated: 2021/04/05 16:24:34 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/05 16:42:59 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	find_q1(t_swapper *swapper, int which)
 		quartile = array[swapper->stack_a.size / 4];
 	else
 		quartile = array[3 * (swapper->stack_a.size / 4)];
+	free(array);
 	return (quartile);
 }
 
