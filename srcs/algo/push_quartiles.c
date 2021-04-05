@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 12:00:03 by ckurt             #+#    #+#             */
-/*   Updated: 2021/04/05 14:45:44 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/05 16:24:03 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,16 +95,19 @@ void	push_q3(t_swapper *swapper)
 void	push_q4(t_swapper *swapper)
 {
 	t_pusher	pusher;
+	t_smallest	bigger;
 	int			size;
 
 	pusher.quartile = find_q1(swapper, 1);
+	bigger = find_biggest(swapper->stack_a);
+	printf("quartile last : %d\n", pusher.quartile);
 	size = swapper->stack_a.size;
 	pusher.i = 0;
 	pusher.j = 0;
 	while (pusher.j < size)
 	{
 		if (swapper->stack_a.tab[0] >= pusher.quartile
-			&& swapper->stack_a.tab[0] <= size)
+			&& swapper->stack_a.tab[0] <= bigger.nb)
 		{
 			do_move(swapper, "pb");
 			pusher.j++;
