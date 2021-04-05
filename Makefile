@@ -23,7 +23,7 @@ _IWHITE=\033[47m
 CHECKER = checker
 PUSH = push_swap
 CC = clang
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 SRCS = srcs/parsing.c \
 		srcs/close.c \
 		srcs/utils.c \
@@ -74,6 +74,6 @@ fclean: clean
 	@rm -f $(PUSH) $(CHECKER)
 
 norme:
-	@norminette srcs/*.c srcs/moves/*.c srcs/algo/*.c checker.c push_swap.c includes/ libft
+	@norminette srcs/*.c checker.c push_swap.c includes/ libft
 
 .PHONY: re clean fclean norme

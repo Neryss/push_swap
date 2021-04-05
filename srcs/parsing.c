@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:35:24 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/31 14:01:52 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/05 10:37:00 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,29 @@ int	check_dupes(t_swapper *swapper, int nb, int j)
 	return (0);
 }
 
+int	check_overflow(char *argv)
+{
+	if (*argv == '-')
+	{
+		argv++;
+		while (*argv == '0' && ft_strlen(argv) > 1)
+			argv++;
+		if (*argv != '0')
+		{
+			argv--;
+			*argv = '-';
+		}
+	}
+	else
+	{
+		while (*argv == '0' && ft_strlen(argv) > 1)
+			argv++;
+	}
+	if (ft_strcmp(argv, ft_itoa(ft_atoi(argv))))
+		return (0);
+	return (1);
+}
+
 void	fill_stacks(char **argv, t_swapper *swapper)
 {
 	int	i;
@@ -41,6 +64,8 @@ void	fill_stacks(char **argv, t_swapper *swapper)
 			&& (argv[i][1] == '-' || argv[i][1] == '+'))
 			close_program(1);
 		swapper->stack_a.tab[j] = ft_atoi(argv[i]);
+		if (!check_overflow(argv[i]))
+			close_program(1);
 		if (check_dupes(swapper, swapper->stack_a.tab[j], j))
 			close_program(1);
 		i++;
