@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 12:00:03 by ckurt             #+#    #+#             */
-/*   Updated: 2021/04/01 14:14:12 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/05 13:50:35 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	push_q3(t_swapper *swapper)
 		{
 			do_move(swapper, "ra");
 			pusher.i++;
-			if (pusher.i > swapper->stack_a.size)
+			if (pusher.i >= swapper->stack_a.size)
 				break ;
 		}
 	}

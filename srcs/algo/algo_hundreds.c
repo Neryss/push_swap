@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:26 by ckurt             #+#    #+#             */
-/*   Updated: 2021/04/01 14:13:37 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/05 13:51:03 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,17 @@ void	hundreds_plus(t_swapper *swapper)
 {
 	push_q1(swapper);
 	sort_quartile(swapper);
+	// do_rotate(swapper);
 	push_q2(swapper);
 	do_rotate(swapper);
+	// close_program(0);
 	sort_quartile(swapper);
-	push_q3(swapper);
 	do_rotate(swapper);
+	push_q3(swapper);
 	sort_quartile(swapper);
 	push_q4(swapper);
 	do_rotate(swapper);
 	sort_quartile(swapper);
 	do_rotate(swapper);
+	close_program(0);
 }
