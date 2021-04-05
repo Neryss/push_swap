@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 12:22:36 by ckurt             #+#    #+#             */
-/*   Updated: 2021/03/31 13:42:27 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/05 10:57:09 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ static void	some_moves(t_swapper *swapper, char *move)
 	else if (!ft_strcmp(move, "rrr"))
 		move_rrr(swapper);
 	else if (!ft_strlen(move))
+		close_program(1);
+	else
 		close_program(1);
 }
 
