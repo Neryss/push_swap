@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:43:15 by ckurt             #+#    #+#             */
-/*   Updated: 2021/04/01 14:15:17 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/05 14:53:13 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,14 +90,12 @@ void		do_sort_things(t_smallest *s_b, t_smallest *b_b,
 void		push_swap(t_swapper *swapper);
 t_smallest	find_smallest_b(t_swapper *swapper);
 t_smallest	find_biggest(t_stack stack);
-void		six_to_hundreds(t_swapper *swapper);
 void		small_algos(t_swapper *swapper);
 t_smallest	find_smallest(t_swapper *swapper);
 int			find_median(t_swapper *swapper);
 int			is_b_rev_sorted(t_swapper *swapper);
 int			is_sorted(t_swapper *swapper);
 int			distance_to_top(t_swapper *swapper, t_smallest *nb);
-void		sort_medians(t_swapper *swapper, int side);
 void		do_move(t_swapper *swapper, char *move);
 
 void		hundreds_plus(t_swapper *swapper);
