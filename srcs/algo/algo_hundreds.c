@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:20:26 by ckurt             #+#    #+#             */
-/*   Updated: 2021/04/05 14:55:43 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/05 14:57:17 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,64 +47,6 @@ void	sort_quartile(t_swapper *swapper)
 		b_b = find_biggest(swapper->stack_b);
 		b_b.dist = distance_to_top(swapper, &b_b);
 		do_sort_things(&s_b, &b_b, swapper);
-	}
-}
-
-int	which_way_rot(t_swapper *swapper, t_smallest smallest)
-{
-	int			i;
-	int			j;
-
-	i = 0;
-	j = 0;
-	i = swapper->stack_a.size - smallest.index;
-	j = smallest.index;
-	if (j < i)
-		return (1);
-	return (0);
-}
-
-void	do_rotate(t_swapper *swapper)
-{
-	t_smallest	smallest;
-
-	smallest = find_smallest(swapper);
-	if (swapper->stack_a.tab[0] == smallest.nb)
-		return ;
-	if (which_way_rot(swapper, smallest))
-		while (swapper->stack_a.tab[0] != smallest.nb)
-			do_move(swapper, "ra");
-	else
-		while (swapper->stack_a.tab[0] != smallest.nb)
-			do_move(swapper, "rra");
-}
-
-
-void	do_sort_things(t_smallest *s_b, t_smallest *b_b
-, t_swapper *swapper)
-{
-	if (s_b->dist < b_b->dist)
-	{
-		if (s_b->index < swapper->stack_b.size / 2)
-		{
-			while (swapper->stack_b.tab[0] != s_b->nb)
-				do_move(swapper, "rb");
-			do_move(swapper, "pa");
-			do_move(swapper, "ra");
-		}
-		else
-			while (swapper->stack_b.tab[0] != s_b->nb)
-				do_move(swapper, "rrb");
-	}
-	else
-	{
-		if (b_b->index < swapper->stack_b.size / 2)
-			while (swapper->stack_b.tab[0] != b_b->nb)
-				do_move(swapper, "rb");
-		else
-			while (swapper->stack_b.tab[0] != b_b->nb)
-				do_move(swapper, "rrb");
-		do_move(swapper, "pa");
 	}
 }
 

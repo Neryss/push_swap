@@ -6,7 +6,7 @@
 /*   By: ckurt <ckurt@student.42lyon.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 14:43:15 by ckurt             #+#    #+#             */
-/*   Updated: 2021/04/05 14:53:13 by ckurt            ###   ########lyon.fr   */
+/*   Updated: 2021/04/05 14:59:11 by ckurt            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,10 @@ int			is_sorted(t_swapper *swapper);
 int			distance_to_top(t_swapper *swapper, t_smallest *nb);
 void		do_move(t_swapper *swapper, char *move);
 
+int			which_way_rot(t_swapper *swapper, t_smallest smallest);
+void		do_rotate(t_swapper *swapper);
+void		do_sort_things(t_smallest *s_b, t_smallest *b_b,
+				t_swapper *swapper);
 void		hundreds_plus(t_swapper *swapper);
 void		do_rotate(t_swapper *swapper);
 void		do_rrotate(t_swapper *swapper, int rotate);
